@@ -4,6 +4,8 @@
 
 DRAG the WebP and WebPDemux files to the WebP.framework and WebPDemux.framework folders in the ios folder in xcode. 
 
+Screen Shot 2019-09-13 at 11.08.58 AM
+
 react-native-webp-support adds support for WebP images for react-native components. This fork includes additional documentation to help users incorporate WebP support into their projects.
 
 # Why???
