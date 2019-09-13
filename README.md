@@ -2,7 +2,8 @@
 
 **Forked from [dbasedow/react-native-webp](https://github.com/dbasedow/react-native-webp)**
 
-DRAG the WebP and WebPDemux files to the WebP.framework and WebPDemux.framework folders in the ios folder in xcode. 
+After running pod install in the ios directory, grab the WebP and WebPDemux files from node_modules/react-native-webp-support folder and DRAG the WebP and WebPDemux files to the WebP.framework and WebPDemux.framework folders in the ios folder in xcode. 
+
 ![](images/readme-img.png)
 
 
