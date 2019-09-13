@@ -3,6 +3,7 @@
 **Forked from [dbasedow/react-native-webp](https://github.com/dbasedow/react-native-webp)**
 
 DRAG the WebP and WebPDemux files to the WebP.framework and WebPDemux.framework folders in the ios folder in xcode. 
+![](Screen Shot 2019-09-13 at 11.08.58 AM.png)
 
 
 
