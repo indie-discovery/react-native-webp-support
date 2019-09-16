@@ -50,17 +50,11 @@ dependencies {
 
 ## iOS
 
-1. `yarn add TGPSKI/react-native-webp-support`
-2. Open your project in Xcode
-3. Add `WebP.framework` and `WebPDemux.framework` from node_modules/react-native-webp-support/ to your project files (Right click your project and select "Add Files to ...")
-	- [Alternative] Drag `WebP.framework` and `WebPDemux.framework` from node_modules/react-native-webp-support/ to project_root/ios
-4. Add `WebP.framework` and `WebPDemux.framework` to your `Linked Frameworks and Libraries` in the General tab of your main project target
-5. Add "$(SRCROOT)/../node_modules/react-native-webp-support" to your `Framework Search Paths`, located in the Build Settings tab of your main project target
-	- [Alternative] Ensure $(PROJECT_DIR) is in your `Framework Search Paths`
-6. Add `$(SRCROOT)/../node_modules/react-native-webp-support` to your `Header Search Paths`, located in the Build Settings tab of your main project target
-7. Add `ReactNativeWebp.xcodeproj` from node_modules/react-native-webp-support/ to your project files (Right click your project and select "Add Files to ...")
-8. Add `libReactNatveWebp.a` to your `Link Binary with Libraries` step, located in the Build Phases tab of your main project target
-9. Build a new binary, and use `.webp` formatted images
+1. `yarn add TechtonicGroup/react-native-webp-support`
+2. open the Podfile in the ios directory. 
+3. paste the following line after the target <project> do, 
+	pod 'Webp', :path => '../node_modules/react-native-webp-support'
+4. drag the WebP and WebPDemux files to the WebP.framework folder above the Headers folder and the WebPDemux.framework folder above the Headers folder.
 
 
 *In general, I don't trust react-native link. I have generated a few bugs using this feature. Manual linking is my go-to for all dependencies.*
