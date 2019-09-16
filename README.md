@@ -53,7 +53,7 @@ dependencies {
 1. `yarn add TechtonicGroup/react-native-webp-support`
 2. open the Podfile in the ios directory. 
 3. paste the following line after the target <project> do, 
-	pod 'Webp', :path => '../node_modules/react-native-webp-support'
+	`pod 'Webp', :path => '../node_modules/react-native-webp-support'`
 4. drag the WebP and WebPDemux files to the WebP.framework folder above the Headers folder and the WebPDemux.framework folder above the Headers folder.
 
 
