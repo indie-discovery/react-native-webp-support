@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.authors          = 'Techtonic'
   s.source           = { :git => 'https://github.com/TechtonicGroup/react-native-webp-support.git', :tag => s.version}
   s.source_files     = 'ios/**/*.{h,m}'
+  s.resources        = 'ios/WebP.framework/WebP', 'ios/WebPDemux.framework/WebPDemux'
   s.requires_arc     = true
   s.platforms        = { :ios => "8.0", :tvos => "9.2" }
   s.dependency         'React'  
