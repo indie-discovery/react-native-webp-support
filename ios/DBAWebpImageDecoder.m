@@ -3,6 +3,11 @@
 #include "libwebp/decode.h"
 #include "libwebp/demux.h"
 
+static void free_data(void *info, const void *data, size_t size)
+{
+    free((void *) data);
+}
+
 @implementation DBAWebpImageDecoder
 
 RCT_EXPORT_MODULE()
