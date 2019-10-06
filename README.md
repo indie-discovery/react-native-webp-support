@@ -2,13 +2,11 @@
 
 **Forked from [dbasedow/react-native-webp](https://github.com/dbasedow/react-native-webp)**
 
-After running pod install in the ios directory, grab the WebP and WebPDemux files from node_modules/react-native-webp-support folder and DRAG the WebP and WebPDemux files to the WebP.framework and WebPDemux.framework folders in the ios folder in xcode inside the Development Pods/Webp folder. 
-
-![](images/readme-img.png)
-
-
-
 react-native-webp-support adds support for WebP images for react-native components. This fork includes additional documentation to help users incorporate WebP support into their projects.
+
+# Installation for iOS
+Steps: npm install --save [this fork] -> pod install -> react-native run-ios .
+Ignore other steps for iOS.
 
 # Why???
 

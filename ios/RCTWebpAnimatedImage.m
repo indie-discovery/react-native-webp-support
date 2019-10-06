@@ -1,6 +1,6 @@
 #import "RCTWebpAnimatedImage.h"
-#include "WebP/decode.h"
-#include "WebP/demux.h"
+#include "libwebp/decode.h"
+#include "libwebp/demux.h"
 
 static void free_data(void *info, const void *data, size_t size)
 {
