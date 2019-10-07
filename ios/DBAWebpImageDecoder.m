@@ -1,12 +1,5 @@
 #import "DBAWebpImageDecoder.h"
-#import "RCTWebpAnimatedImage.h"
-#include "libwebp/decode.h"
-#include "libwebp/demux.h"
-
-static void free_data(void *info, const void *data, size_t size)
-{
-    free((void *) data);
-}
+#import <SDWebImageWebPCoder/SDWebImageWebPCoder.h>
 
 @implementation DBAWebpImageDecoder
 
@@ -14,12 +7,7 @@ RCT_EXPORT_MODULE()
 
 - (BOOL)canDecodeImageData:(NSData *)imageData
 {
-    int result = WebPGetInfo([imageData bytes], [imageData length], NULL, NULL);
-    if (result == 0) {
-        return NO;
-    } else {
-        return YES;
-    }
+    return [[SDImageWebPCoder sharedCoder] canDecodeFromData:imageData];
 }
 
 - (RCTImageLoaderCancellationBlock)decodeImageData:(NSData *)imageData
@@ -28,34 +16,15 @@ RCT_EXPORT_MODULE()
                                         resizeMode:(RCTResizeMode)resizeMode
                                  completionHandler:(RCTImageLoaderCompletionBlock)completionHandler
 {
-  UIImage *image;
-  WebPBitstreamFeatures features;
-  WebPGetFeatures([imageData bytes], [imageData length], &features);
+    UIImage *image = [[SDImageWebPCoder sharedCoder] decodedImageWithData:imageData options:nil];
 
-  if (features.has_animation) {
-    image = [[RCTWebpAnimatedImage alloc] initWithData:imageData scale:scale];
-  } else {
-    int width = 0, height = 0;
-    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
-    CGBitmapInfo bitmapInfo = kCGBitmapByteOrderDefault | kCGImageAlphaLast;
-    CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
+    if (!image) {
+      completionHandler(nil, nil);
+      return ^{};
+    }
 
-    uint8_t *data = WebPDecodeRGBA([imageData bytes], [imageData length], &width, &height);
-    CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, data, width*height*4, free_data);
-
-    CGImageRef imageRef = CGImageCreate(width, height, 8, 32, 4 * width, colorSpaceRef, bitmapInfo, provider, NULL, YES, renderingIntent);
-    image = [UIImage imageWithCGImage:imageRef scale:scale orientation:UIImageOrientationUp];
-    
-    CGDataProviderRelease(provider);
-    CGImageRelease(imageRef);
-  }
-  
-  if (!image) {
-    completionHandler(nil, nil);
+    completionHandler(nil, image);
     return ^{};
-  }
-  
-  completionHandler(nil, image);
-  return ^{};
 }
+
 @end
