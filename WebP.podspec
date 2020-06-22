@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
   s.source              = { :git => 'https://github.com/SmoshySmosh/react-native-webp-support.git', :tag => s.version}
   s.source_files        = 'ios/*.{h,m}'
   s.requires_arc        = true
-  s.platforms           = { :ios => "9.0" }
+  s.platforms           = { :ios => "9.0", :tvos => "13.0" }
   s.dependency            'React'
   s.dependency            'SDWebImageWebPCoder'
 end
